@@ -53,4 +53,6 @@
             <?php echo _('(POP3 password for bounce address)'); ?>
         </span>
     </div>
+
+    <input type="submit" value="<?php echo _('Save'); ?>" />
 </form>

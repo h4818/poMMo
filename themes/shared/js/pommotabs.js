@@ -21,10 +21,14 @@ var PommoTabs = {
         tab = $('#tabs .ui-tabs-panel:visible');
         this.clicked = false;
         this.mandatoryForm = false;
-        $('form.json',tab).each(function(){
-            var form = poMMo.form.init(this,{type: 'json', onValid: PommoTabs.change});
-            if($(this).hasClass('mandatory'))
+        $('form.json', tab).each(function() {
+            var form = poMMo.form.init(this, {
+                type: 'json',
+                onValid: PommoTabs.change
+            });
+            if ($(this).hasClass('mandatory')) {
                 PommoTabs.mandatoryForm = form;
+            }
         });
     },
     click: function(tab) {
