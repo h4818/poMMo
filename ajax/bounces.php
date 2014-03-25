@@ -1,6 +1,7 @@
 <?php
 /**
- *  Original Code Copyright (C) 2005, 2006, 2007, 2008  Brice Burgess <bhb@iceburg.net>
+ *  Original Code Copyright (C) 2005, 2006, 2007, 2008  Brice Burgess
+ *  <bhb@iceburg.net>
  *  released originally under GPLV2
  *
  *  This file is part of poMMo.
@@ -28,8 +29,30 @@
 *********************************/
 require '../bootstrap.php';
 Pommo::init();
-$logger = Pommo::$_logger;
-$dbo = Pommo::$_dbo;
+
+if ($_POST['bounces_submit']) {
+    require_once Pommo::$_baseDir . 'classes/Pommo_Json.php';
+    require_once Pommo::$_baseDir . 'classes/Pommo_Setup.php';
+
+    $json = new Pommo_Json();
+    $setup = new Pommo_Setup();
+
+    if (!$setup->saveBouncesForm()) {
+        $fieldErrors = array();
+        $errors = $setup->error['message'];
+        foreach ($errors as $key => $val) {
+            $fieldErrors[$key] = $val;
+        }
+
+        $json->add('fieldErrors', $fieldErrors);
+        $json->fail(_('Save failed'));
+    } else {
+        $json->success(_('Hello'));
+    }
+
+    return;
+}
+
 
 /**********************************
  SETUP TEMPLATE, PAGE

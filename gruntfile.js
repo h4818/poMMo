@@ -20,6 +20,12 @@ module.exports = function(grunt) {
       csvstream: {
         dir: 'classes/Pommo_Csv_Stream.php'
       },
+      ajaxbounces: {
+        dir: 'ajax/bounces.php'
+      },
+      setup: {
+        dir: 'classes/Pommo_Setup.php'
+      },
       options: {
         standard: 'ruleset.xml'
       }
@@ -36,7 +42,9 @@ module.exports = function(grunt) {
       'phpcs:api',
       'phpcs:auth',
       'phpcs:csvstream',
-      'phpcs:attachment'
+      'phpcs:attachment',
+      'phpcs:ajaxbounces',
+      'phpcs:setup'
     ]
   );
 };

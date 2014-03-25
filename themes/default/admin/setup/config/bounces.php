@@ -54,5 +54,5 @@
         </span>
     </div>
 
-    <input type="submit" value="<?php echo _('Save'); ?>" />
+    <input type="submit" value="<?php echo _('Save'); ?>" name="bounces_submit" />
 </form>
