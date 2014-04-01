@@ -6,7 +6,8 @@
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-cli": "*",
+    "grunt-phpcs": "0.2.0",
     "grunt-phplint": "0.0.5",
-    "grunt-phpcs": "0.2.0"
+    "grunt-phpunit": "0.3.3"
   }
 }

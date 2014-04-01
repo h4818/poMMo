@@ -7,6 +7,7 @@ module.exports = function(grunt) {
         'classes/*.php'
       ]
     },
+
     phpcs: {
       api: {
         dir: 'classes/Pommo_Api.php'
@@ -29,11 +30,21 @@ module.exports = function(grunt) {
       options: {
         standard: 'ruleset.xml'
       }
+    },
+
+    phpunit: {
+        classes: {
+            dir: 'tests/unit/'
+        },
+        options: {
+            colors: true
+        }
     }
   });
 
-  grunt.loadNpmTasks('grunt-phplint');
   grunt.loadNpmTasks('grunt-phpcs');
+  grunt.loadNpmTasks('grunt-phplint');
+  grunt.loadNpmTasks('grunt-phpunit');
 
   grunt.registerTask(
     'default',
@@ -44,7 +55,8 @@ module.exports = function(grunt) {
       'phpcs:csvstream',
       'phpcs:attachment',
       'phpcs:ajaxbounces',
-      'phpcs:setup'
+      'phpcs:setup',
+      'phpunit'
     ]
   );
 };

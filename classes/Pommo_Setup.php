@@ -47,15 +47,21 @@ class Pommo_Setup
      * ]
      * @return
      */
-    public function saveBouncesForm()
+    public function saveBouncesForm($data)
     {
         $this->error = null;
+        $messages = array();
+
+        if (empty($data['bounces_address'])) {
+            $messages['bounces_address'] = _(
+                'You must specify an e-mail address where the bounces will be'
+                . 'sent'
+            );
+        }
 
         $this->error = array(
             'code' => 1,
-            'message' => [
-                'something' => 'something'
-            ]
+            'message' => $messages
         );
 
         return false;
